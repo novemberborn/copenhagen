@@ -53,12 +53,14 @@ load dependencies.
 
 ## Remaining work
 
-Copenhagen is still new. I'd like to integrate it with `nyc`. The `cacheSalt`
-implementation should be improved to work with local Git clones and npm-based
-Git installs. This will help development. Much more syntax needs to be
-supported, as well as Istanbul's ignore pragmas. There is a [`__coverage__`
-Babel plugin](https://github.com/dtinth/babel-plugin-__coverage__) which may
-contain some useful syntax.
+Copenhagen is still new. I'd like to integrate it with `nyc`, see
+<https://github.com/bcoe/nyc/pull/217>. The `cacheSalt` implementation should be
+improved to work with local Git clones and npm-based Git installs. This will
+help development. Much more syntax needs to be supported, as well as Istanbul's
+ignore pragmas. There is a [`__coverage__` Babel
+plugin](https://github.com/dtinth/babel-plugin-__coverage__) which may contain
+some useful syntax. Copenhagen should still support translating coverage data
+using source maps.
 
 [Istanbul]: https://github.com/gotwarlost/istanbul/
 [`nyc`]: https://github.com/bcoe/nyc
