@@ -1,0 +1,100 @@
+{
+  "name": "copenhagen",
+  "version": "0.0.0",
+  "description": "Experimental infrastructure for creating Istanbul-compatible code coverage",
+  "main": "index.js",
+  "files": [
+    "collector.js",
+    "collector.js.map",
+    "coverage.js",
+    "coverage.js.map",
+    "index.js",
+    "index.js.map",
+    "instrument.js",
+    "instrument.js.map",
+    "babel-plugins",
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf *.js *.js.map babel-plugins lib",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir ./ --source-maps",
+    "build:watch": "npm run build -- --watch",
+    "prepublish": "npm run build",
+    "lint": "as-i-preach",
+    "test": "ava",
+    "test:watch": "ava --verbose --watch",
+    "posttest": "npm run lint",
+    "coverage": "nyc npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novemberborn/copenhagen.git"
+  },
+  "author": "Mark Wubben (https://novemberborn.net/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novemberborn/copenhagen/issues"
+  },
+  "homepage": "https://github.com/novemberborn/copenhagen#readme",
+  "dependencies": {
+    "babel-core": "^6.7.4",
+    "babel-template": "^6.7.0",
+    "babel-types": "^6.7.2",
+    "csv-parser": "^1.9.3",
+    "es6-promise": "^3.1.2",
+    "md5-hex": "^1.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4"
+  },
+  "devDependencies": {
+    "@novemberborn/as-i-preach": "^2.0.0",
+    "ava": "^0.13.0",
+    "babel-cli": "^6.6.5",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-es6-promise": "^1.0.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
+    "babel-plugin-transform-es2015-block-scoping": "^6.7.1",
+    "babel-plugin-transform-es2015-computed-properties": "^6.6.5",
+    "babel-plugin-transform-es2015-destructuring": "^6.6.5",
+    "babel-plugin-transform-es2015-parameters": "^6.7.0",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0",
+    "babel-plugin-transform-es2015-spread": "^6.6.5",
+    "babel-plugin-transform-es2015-template-literals": "^6.6.5",
+    "babel-plugin-transform-strict-mode": "^6.6.5",
+    "nyc": "^6.1.1",
+    "outdent": "^0.1.2",
+    "proxyquire": "^1.7.4",
+    "require-from-string": "^1.1.0",
+    "rimraf": "^2.5.2"
+  },
+  "ava": {
+    "source": [
+      "*.js",
+      "{babel-plugins,lib}/**/*.js"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      "es6-promise",
+      "transform-es2015-arrow-functions",
+      "transform-es2015-block-scoping",
+      "transform-es2015-computed-properties",
+      "transform-es2015-destructuring",
+      "transform-es2015-modules-commonjs",
+      "transform-es2015-parameters",
+      "transform-es2015-shorthand-properties",
+      "transform-es2015-spread",
+      "transform-es2015-template-literals",
+      "transform-strict-mode",
+      "add-module-exports"
+    ]
+  },
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "html",
+      "lcov",
+      "text"
+    ]
+  }
+}

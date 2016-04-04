@@ -1,0 +1,9 @@
+.node-version
+.nyc_output
+node_modules
+/coverage
+
+/*.js
+/*.js.map
+/babel-plugins
+/lib
