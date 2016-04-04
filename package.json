@@ -1,6 +1,6 @@
 {
   "name": "copenhagen",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Experimental infrastructure for creating Istanbul-compatible code coverage",
   "main": "index.js",
   "files": [
