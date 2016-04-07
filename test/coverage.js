@@ -73,14 +73,14 @@ test('collectUsageData() collects data from a single stream', async t => {
 
   const data = await collectUsageData(stream)
   t.true(Object.keys(data).length === 2)
-  t.same(data[foo.hash], [
+  t.deepEqual(data[foo.hash], [
     { id: '1', type: 's' },
     { id: '3', type: 's' },
     { id: '5', type: 's' },
     { id: '1', type: 'f' },
     { id: '2', type: 's' }
   ])
-  t.same(data[bar.hash], [
+  t.deepEqual(data[bar.hash], [
     { id: '1', type: 's' }
   ])
 })
@@ -95,14 +95,14 @@ test('collectUsageData() collects data from multiple streams', async t => {
 
   const data = await collectUsageData([foo.stream, bar.stream])
   t.true(Object.keys(data).length === 2)
-  t.same(data[foo.hash], [
+  t.deepEqual(data[foo.hash], [
     { id: '1', type: 's' },
     { id: '3', type: 's' },
     { id: '5', type: 's' },
     { id: '1', type: 'f' },
     { id: '2', type: 's' }
   ])
-  t.same(data[bar.hash], [
+  t.deepEqual(data[bar.hash], [
     { id: '1', type: 's' }
   ])
 })
@@ -125,7 +125,7 @@ test('addCounts() updates a coverage report with usage data', async t => {
   addCounts(report, data[hash])
 
   const { s, b, f } = report
-  t.same(s, {
+  t.deepEqual(s, {
     1: 1,
     2: 2,
     3: 1,
@@ -133,8 +133,8 @@ test('addCounts() updates a coverage report with usage data', async t => {
     5: 1,
     6: 0
   })
-  t.same(b, {})
-  t.same(f, {
+  t.deepEqual(b, {})
+  t.deepEqual(f, {
     1: 2,
     2: 1,
     3: 0

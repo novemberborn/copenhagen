@@ -92,7 +92,7 @@ test('inserts unique variables', t => {
     }
   `
 
-  t.same([].slice.call(exports.check()), [1, 2, 3, 4])
+  t.deepEqual([].slice.call(exports.check()), [1, 2, 3, 4])
   t.true(traces.length > 0)
 })
 
@@ -117,12 +117,12 @@ test('instruments empty function expressions', t => {
 
 test('instruments assignment expressions', t => {
   const { traces } = run`exports.empty = true`
-  t.same(traces, ['s1'])
+  t.deepEqual(traces, ['s1'])
 })
 
 test('instruments variable declarations', t => {
   const { traces } = run`var foo = 'bar'`
-  t.same(traces, ['s1'])
+  t.deepEqual(traces, ['s1'])
 })
 
 test('instruments return statements', t => {

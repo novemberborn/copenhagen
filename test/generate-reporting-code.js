@@ -31,7 +31,7 @@ function initialCoverage (code) {
 }
 
 test('provides empty coverage for empty programs', t => {
-  t.same(initialCoverage``, {
+  t.deepEqual(initialCoverage``, {
     path: 'foo.js',
     s: {},
     b: {},
@@ -43,7 +43,7 @@ test('provides empty coverage for empty programs', t => {
 })
 
 test('covers empty function statements', t => {
-  t.same(initialCoverage`function noop() {}`, {
+  t.deepEqual(initialCoverage`function noop() {}`, {
     path: 'foo.js',
     s: {
       1: 0
@@ -73,7 +73,7 @@ test('covers empty function statements', t => {
 })
 
 test('generates anonymous function names', t => {
-  t.same(initialCoverage`
+  t.deepEqual(initialCoverage`
     exports.foo = function () {}
     exports.bar = function () {}
   `.fnMap, {
@@ -97,7 +97,7 @@ test('generates anonymous function names', t => {
 })
 
 test('covers assignment expressions', t => {
-  t.same(initialCoverage`exports.foo = function () {}`, {
+  t.deepEqual(initialCoverage`exports.foo = function () {}`, {
     path: 'foo.js',
     s: {
       1: 0
@@ -127,7 +127,7 @@ test('covers assignment expressions', t => {
 })
 
 test('covers return statements', t => {
-  t.same(initialCoverage`
+  t.deepEqual(initialCoverage`
     function foo () {
       return 'bar'
     }
@@ -166,7 +166,7 @@ test('covers return statements', t => {
 })
 
 test('covers variable declarations', t => {
-  t.same(initialCoverage`
+  t.deepEqual(initialCoverage`
     var foo = 'bar'
   `, {
     path: 'foo.js',
