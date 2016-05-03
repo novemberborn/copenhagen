@@ -44,7 +44,7 @@
     "csv-parser": "^1.9.3",
     "es6-promise": "^3.1.2",
     "md5-hex": "^1.2.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0"
   },
   "devDependencies": {
     "@novemberborn/as-i-preach": "^2.0.0",
