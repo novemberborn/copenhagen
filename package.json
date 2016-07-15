@@ -47,7 +47,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4"
   },
   "devDependencies": {
-    "@novemberborn/as-i-preach": "^2.0.0",
+    "@novemberborn/as-i-preach": "^4.0.0",
     "ava": "^0.15.0",
     "babel-cli": "^6.6.5",
     "babel-plugin-add-module-exports": "^0.2.0",
